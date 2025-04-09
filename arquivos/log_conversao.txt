@@ -1,0 +1,20 @@
+Conversão iniciada em: /home/jonathan/Documentos/projetos/profissional_git/operadores_back_office_cartography/arquivos
+
+===== Conversão de log0408q.tps =====
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+obs: log00980.25o
+nav: log00980.25n
+nav: log00980.25g
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
+ERR: NE has invalid sv
