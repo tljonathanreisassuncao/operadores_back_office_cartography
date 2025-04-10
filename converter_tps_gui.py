@@ -45,7 +45,11 @@ for pasta in [DIRETORIO_TPS, DESTINO_ZIP, RESULTADO_VOOS]:
 # ICONE_PATH = os.path.join(RESOURCE_DIR, "icon.png")
 if getattr(sys, 'frozen', False):
     BASE_DIR = os.path.dirname(sys.executable)
-    ICONE_PATH = os.path.join(sys._MEIPASS, "img", "icon.png")
+    # Caminho padrão do sistema para ícone instalado via .deb
+    ALT_ICON_PATH = "/usr/share/icons/conversorcartografico.png"
+    ICONE_PATH = os.path.join(sys._MEIPASS, "img", "icon.png")  # Padrão PyInstaller
+    if not os.path.exists(ICONE_PATH):
+        ICONE_PATH = ALT_ICON_PATH  # fallback
 else:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     ICONE_PATH = os.path.join(BASE_DIR, "img", "icon.png")
@@ -187,15 +191,16 @@ janela.resizable(False, False)
 frame_topo = tk.Frame(janela, bg="#0A1F44")
 frame_topo.pack(pady=(10, 5), padx=10, fill='x')
 
-frame_logo = tk.Frame(frame_topo, bg="#0A1F44")
-frame_logo.pack(side=tk.RIGHT, padx=20)
+# frame_logo = tk.Frame(frame_topo, bg="#0A1F44")
+# frame_logo.pack(side=tk.RIGHT, padx=20)
 
 try:
+    print("ICONE_PATH:", ICONE_PATH)
     imagem_original = Image.open(ICONE_PATH)
     imagem_redimensionada = imagem_original.resize((100, 100))
     imagem_logo = ImageTk.PhotoImage(imagem_redimensionada)
-    label_logo = tk.Label(frame_logo, image=imagem_logo, bg="#0A1F44")
-    label_logo.pack()
+    # label_logo = tk.Label(frame_logo, image=imagem_logo, bg="#0A1F44")
+    # label_logo.pack()
 except Exception as e:
     print(f"Erro ao carregar o ícone: {e}")
 
@@ -203,11 +208,11 @@ frame_botoes = tk.Frame(frame_topo, bg="#0A1F44")
 frame_botoes.pack(side=tk.LEFT, padx=20)
 
 botao_converter = tk.Button(frame_botoes, text="Conversão RINEX", command=executar_conversao,
-                            bg="#1E293B", fg="white", height=1, width=70, font=("Helvetica", 9, "bold"))
+                            bg="#1E293B", fg="white", height=1, width=90, font=("Helvetica", 9, "bold"))
 botao_converter.pack(pady=(5, 5), fill='x', expand=True)
 
 botao_extrair = tk.Button(frame_botoes, text="Extrair Imagens Drone Multiespectral", command=extrair_arquivos_tif,
-                          bg="#1E293B", fg="white", height=1, width=70, font=("Helvetica", 9, "bold"))
+                          bg="#1E293B", fg="white", height=1, width=90, font=("Helvetica", 9, "bold"))
 botao_extrair.pack(pady=(0, 5), fill='x', expand=True)
 
 # botao_extrair_rgb = tk.Button(frame_botoes, text="Extrair Imagens Drone RGB", command=extrair_arquivos_rgb,

@@ -1,0 +1,10 @@
+pip freeze > requirements.txt
+
+python -m venv venv
+venv\Scripts\activate
+
+pip install pyinstaller pillow
+
+pyinstaller --onefile --windowed converter_tps_gui.py
+
+

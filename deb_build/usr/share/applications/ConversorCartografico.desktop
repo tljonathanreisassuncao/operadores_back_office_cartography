@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Conversor Cartográfico
+Comment=Ferramenta para conversão de arquivos RINEX
+Exec=/usr/bin/ConversorCartografico
+Icon=ConversorCartografico
+Terminal=false
+Type=Application
+Categories=Utility;
